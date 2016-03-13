@@ -10,8 +10,13 @@ class SignUpForm(forms.ModelForm):
 		email = self.cleaned_data.get('email')
 		email_base, provider = email.split('@')
 		domain, extension = provider.split('.')
-		if not domain == 'USC':
-			raise forms.ValidationError("Пожалуйста, убедитесь, что вы используете ваш USC электронной почты.")
+#		if not domain == 'USC':
+#			raise forms.ValidationError("Пожалуйста, убедитесь, что вы используете ваш USC электронной почты.")
 		if not extension == 'edu':
 			raise forms.ValidationError("Пожалуйста, используйте действительный адрес электронной почты .edu")
 		return email
+
+	def clean_full_name(self):
+		full_name = self.cleaned_data.get('full_name')
+		#write validation code
+		return full_name
