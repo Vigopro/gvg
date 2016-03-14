@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.conf import settings
 from django.core.mail import send_mail
-
 from .forms import SignUpForm, ContactForm
 
 def home(request):
@@ -22,7 +21,7 @@ def home(request):
 		context = {
 			"title": "Спасибо за регистрацию %s" %full_name
 		}
-	return render(request, "home.html", context)
+	return render(request, "base.html", context)
 
 
 def contact(request):
