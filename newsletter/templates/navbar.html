@@ -30,10 +30,10 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
           {% if request.user.is_authenticated%}
-            <li><a href="">Logout</a></li>
+            <li><a href="{% url 'auth_logout'%}">Logout</a></li>
             {% else %}
-            <li><a href="">Login</a></li>
-            <li><a href="">Register</a></li>
+            <li><a href="{% url 'auth_login'%}">Login</a></li>
+            <li><a href="{% url 'registration_register'%}">Register</a></li>
             {% endif %}
           </ul>
         </div><!--/.nav-collapse -->
