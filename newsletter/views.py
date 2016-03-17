@@ -4,13 +4,12 @@ from django.core.mail import send_mail
 from .forms import SignUpForm, ContactForm
 
 def home(request):
-	title = "Welcome"
+	title = "Sing Up Now"
 	form = SignUpForm(request.POST or None)
 	context = {
 		"title": title,
 		"form": form,
 	}
-
 	if form.is_valid():
 		instance = form.save(commit=False)
 		full_name = form.cleaned_data.get("full_name")
@@ -21,6 +20,11 @@ def home(request):
 		context = {
 			"title": "Спасибо за регистрацию %s" %full_name
 		}
+	if request.user.is_authenticated() and request.user.is_staff:
+		context = {
+			"queryset": [123, 456]
+		}
+
 	return render(request, "home.html", context)
 
 

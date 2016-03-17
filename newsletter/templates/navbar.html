@@ -31,7 +31,7 @@
             </li>-->
           </ul>
             <ul class="nav navbar-nav navbar-right">
-          {% if request.user.is_authenticated%}
+          {% if request.user.is_authenticated %}
             <li><a href="{% url 'auth_logout'%}">Logout</a></li>
             {% else %}
             <li><a href="{% url 'registration_register'%}">Register</a></li>

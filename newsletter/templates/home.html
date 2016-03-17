@@ -16,6 +16,7 @@
 </style>
 
 {% block jumbotron %}
+{% if not request.user.is_authenticated %}
 <div class="jumbotron">
 	<div class="container">
 	<div class="row">
@@ -28,16 +29,25 @@
 			</p>
 		</div>
 			<div class="col-sm-6">
-			<iframe width="560" height="315" src="https://www.youtube.com/embed/ZbZSe6N_BXs" frameborder="0" allowfullscreen></iframe>
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/LlY90lG_Fuw" frameborder="0" allowfullscreen></iframe>
 
 			</div>
 	</div>
 	</div>
 </div>
+{% endif %}
     {% endblock %}
 
 
+
 {% block content %}
+
+{% if request.user.is_authenticated %}
+<h1>You are logged in!</h1>
+{{ request.user.is_staff }}
+{{ queryset }}
+{% else %}
+
 <div class="row">
 
 	<div class="col-sm-3 pull-right">
@@ -52,33 +62,36 @@
 		</form>
 	</div>
 <div class='col-sm-3'>
-	<p class="lead text-align-center">Built with Django &amp; Bootstrap
+<a href="https://vk.com/ineyron">
+	<p class="lead text-align-center" style="color:black">My Account VK
 	<br>
 	<span class="fa-stack fa-lg fa-5x" style="color:#5284E5">
 		<i class="fa fa-square-o fa-stack-2x"></i>
 		<i class="fa fa-vk fa-stack-1x"></i>
 	</span>
 	</p>
-
+</a>
 
 </div>
 <div class='col-sm-3'>
-	<p class="lead text-align-center">Created for Startes of all kinds.
-	<br>
+	<p class="lead text-align-center" style="color:black">Yes We Can
 	<img src="{% static 'img/homer.png' %}" class="text-align: center">
 	</p>
 </div>
+
 <div class='col-sm-3'>
-	<p class="lead text-align-center">Always open source
+<a href="https://github.com/Vigopro" style="color:black">
+	<p class="lead text-align-center">My Account GitHub
 	<br><br>
-	<span class="fa-stack fa-lg fa-5x">
-		<i class="fa fa-circle-o-notch fa-stack-2x fa-spin"></i>
+	<span class="fa-stack fa-lg fa-4x">
+		<i class="fa fa-circle-o-notch fa-stack-2x"></i>
 		<i class="fa fa-github fa-stack-1x"></i>
 	</span>
 	</p>
+	</a>
 </div>
 </div>
-
+{% endif %}
 {% endblock %}
 
 
