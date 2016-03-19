@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.conf import settings
 from django.core.mail import send_mail
 from .forms import SignUpForm, ContactForm
+from .models import SignUp
+
 
 def home(request):
 	title = "Sing Up Now"
@@ -20,11 +22,6 @@ def home(request):
 		context = {
 			"title": "Спасибо за регистрацию %s" %full_name
 		}
-	if request.user.is_authenticated() and request.user.is_staff:
-		context = {
-			"queryset": [123, 456]
-		}
-
 	return render(request, "home.html", context)
 
 

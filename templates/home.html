@@ -36,29 +36,25 @@
 	</div>
 </div>
 {% endif %}
-    {% endblock %}
-
-
+{% endblock %}
 
 {% block content %}
-
 {% if request.user.is_authenticated %}
-<h1>You are logged in!</h1>
-{{ request.user.is_staff }}
-{{ queryset }}
+	<h1>You are logged in!</h1>
+	{% if queryset %}
+		<h2>Welcome Staff</h2>
+	{% for instance in queryset %}
+		{{ instance.full_name }}, {{ instance.email }} <br>
+	{% endfor %}
+	{% endif %}
 {% else %}
-
 <div class="row">
-
 	<div class="col-sm-3 pull-right">
 		<p class="lead text-align-center">{{ title }}</p>
-
 		<form method = "POST" action="">
 			{% csrf_token%}
 			{{ form|crispy }}  <!--вертикальное расположение as_p -->
-
 			<input class="btn btn-primary" type='submit' value='Sign Up'/>
-
 		</form>
 	</div>
 <div class='col-sm-3'>
@@ -71,14 +67,12 @@
 	</span>
 	</p>
 </a>
-
 </div>
 <div class='col-sm-3'>
 	<p class="lead text-align-center" style="color:black">Yes We Can
 	<img src="{% static 'img/homer.png' %}" class="text-align: center">
 	</p>
 </div>
-
 <div class='col-sm-3'>
 <a href="https://github.com/Vigopro" style="color:black">
 	<p class="lead text-align-center">My Account GitHub
