@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 {% load staticfiles %}
-{% block head_title %}Welcome | {{ block.super }}{% endblock %}
+{% block head_title %}Добро пожаловать | {{ block.super }}{% endblock %}
 
 <style>
 {% block style %}
@@ -12,6 +12,30 @@
 	background-color:#2ED675;
 	color:#FFF;
 }
+
+.content {
+	margin-bottom: 0px;
+}
+
+/*footer {
+
+	position: absolute;
+    left: 0; bottom: 0;
+    background-color: #EA6E1F;  Цвет фона
+    color: black;  Цвет текста
+    width: 100%;  Ширина слоя
+
+
+   }*/
+.copyright {
+  width: 740px; /* Ширина макета без полей */
+  padding: 0 10px 10px; /* Поля */
+  margin: auto; /* Выравнивание по центру */
+  color: white; /* Цвет текста */
+}
+.copyright p {
+  margin: 0 0 5px 170px; /* Отступы текста */
+}
 {% endblock %}
 </style>
 
@@ -21,11 +45,13 @@
 	<div class="container">
 	<div class="row">
 		<div class="col-sm-6">
-			<h1>Hello dudes !!!</h1>
-			<p>This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
-			<p>To see the difference between static and fixed top navbars, just scroll.</p>
+			<h1>Привет Мир !!!</h1>
+			<p>Этот сайт создан как пример лэндинг-сайта. Он не несет в себе никакого
+				тематического направления. Со временем ВОЗМОЖНО он будет доробатываться
+				и приобретет свою отрасль, но пока есть только то, что вы видите.</p>
+			<p>Средства разработки: Django, Bootstrap, CSS, JavaScript.</p>
 			<p>
-				<a class="btn btn-lg btn-primary" href="" role="button">View navbar docs &raquo;</a>
+				<a class="btn btn-lg btn-primary" href="" role="button">Пустая кнопка &raquo;</a>
 			</p>
 		</div>
 			<div class="col-sm-6">
@@ -39,7 +65,7 @@
 {% endblock %}
 
 {% block content %}
-{% if request.user.is_authenticated %}
+<!--{% if request.user.is_authenticated %}
 	<h1>You are logged in!</h1>
 	{% if queryset %}
 		<h2>Welcome Staff</h2>
@@ -47,7 +73,8 @@
 		{{ instance.full_name }}, {{ instance.email }} <br>
 	{% endfor %}
 	{% endif %}
-{% else %}
+{% else %}-->
+<div class="content">
 <div class="row">
 	<div class="col-sm-3 pull-right">
 		<p class="lead text-align-center">{{ title }}</p>
@@ -59,7 +86,7 @@
 	</div>
 <div class='col-sm-3'>
 <a href="https://vk.com/ineyron">
-	<p class="lead text-align-center" style="color:black">My Account VK
+	<p class="lead text-align-center" style="color:black">Мой Аккаунт VK
 	<br>
 	<span class="fa-stack fa-lg fa-5x" style="color:#5284E5">
 		<i class="fa fa-square-o fa-stack-2x"></i>
@@ -69,13 +96,13 @@
 </a>
 </div>
 <div class='col-sm-3'>
-	<p class="lead text-align-center" style="color:black">Yes We Can
+	<p class="lead text-align-center" style="color:black">Super Homer
 	<img src="{% static 'img/homer.png' %}" class="text-align: center">
 	</p>
 </div>
 <div class='col-sm-3'>
 <a href="https://github.com/Vigopro" style="color:black">
-	<p class="lead text-align-center">My Account GitHub
+	<p class="lead text-align-center">Мой Аккаунт GitHub
 	<br><br>
 	<span class="fa-stack fa-lg fa-4x">
 		<i class="fa fa-circle-o-notch fa-stack-2x"></i>
@@ -85,8 +112,18 @@
 	</a>
 </div>
 </div>
+</div>
 {% endif %}
 {% endblock %}
+<!--{% block footer %}
+<footer>
+ <div class="footer-bg">
+  <div class="copyright">
+	<p><strong>Пример лэндинг сайта</strong>&copy; Голубев Виталий 2016</p>
+  </div>
+ </div>
+</footer>
+ {% endblock %}-->
 
 
 

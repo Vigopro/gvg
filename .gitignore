@@ -1,6 +1,6 @@
 *.pyc
 *.sqlite3
 __pycache__
-
+local.py
 /media/
 /static/

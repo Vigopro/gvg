@@ -6,7 +6,7 @@ from .models import SignUp
 
 
 def home(request):
-	title = "Sing Up Now"
+	title = "Подпишись на рассылку"
 	form = SignUpForm(request.POST or None)
 	context = {
 		"title": title,
@@ -14,9 +14,9 @@ def home(request):
 	}
 	if form.is_valid():
 		instance = form.save(commit=False)
-		full_name = form.cleaned_data.get("full_name")
+		full_name = form.cleaned_data.get("Имя")
 		if not full_name:
-			full_name = "New full name"
+			full_name = "Новое имя"
 		instance.full_name = full_name
 		instance.save() #С добавлением этой строки будет появляться дата регистрации
 		context = {
@@ -33,8 +33,8 @@ def contact(request):
 #		for key, value in form.cleaned_data.items():
 #			print (key, value)
 		form_email = form.cleaned_data.get("email")
-		form_message = form.cleaned_data.get("message")
-		form_full_name = form.cleaned_data.get("full_name")
+		form_message = form.cleaned_data.get("Сообщение")
+		form_full_name = form.cleaned_data.get("Имя")
 #		print email, message, full_name
 		subject = 'Site contact form'
 		from_email = settings.EMAIL_HOST_USER
