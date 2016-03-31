@@ -1,11 +1,11 @@
 {% extends "registration/registration_base.html" %}
 {% load i18n %}
 {% load crispy_forms_tags %}
-{% block title %}{% trans "Logged out" %}{% endblock %}
+{% block title %}{% trans "Выход" %}{% endblock %}
 
 {% block content %}
-<p class="lead text-align-center">{% trans "Successfully logged out" %}.</p>
+<p class="lead text-align-center">{% trans "Выход выполнен успешно" %}.</p>
 <form method="post" action="">
-<input class="col-sm-4 col-sm-offset-4 btn btn-primary" type="submit" value="{% trans 'Log in' %}" />
+<input class="col-sm-4 col-sm-offset-4 btn btn-primary" type="submit" value="{% trans 'Войти' %}" />
 </form>
 {% endblock %}

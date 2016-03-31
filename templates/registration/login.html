@@ -1,7 +1,7 @@
 {% extends "registration/registration_base.html" %}
 {% load i18n %}
 {% load crispy_forms_tags %}
-{% block title %}{% trans "Log in" %}{% endblock %}
+{% block title %}{% trans "Войти" %}{% endblock %}
 
 {% block content %}
 <div class="row">
@@ -10,12 +10,12 @@
 <form method="post" action="">
     {% csrf_token %}
     {{ form|crispy }}
-    <input class="col-sm-12 col-sm-offset-0 btn btn-primary" type="submit" value="{% trans 'Log in' %}" />
-    <input type="hidden" name="next" value="{{ next }}" />
+    <input class="col-sm-12 col-sm-offset-0 btn btn-primary" type="submit" value="{% trans 'Войти' %}" />
+    <input type="hidden" name="next" value="{{ Далее }}" />
 </form>
 
-<p class="lead text-align-center">{% trans "Forgot your password?" %} <a href="{% url 'auth_password_reset' %}">{% trans "Reset it" %}</a>.</p>
-<p class="lead text-align-center">{% trans "Not a member?" %} <a href="{% url 'registration_register' %}">{% trans "Register" %}</a>.</p>
+<p class="lead text-align-center">{% trans "Забыли свой пароль?" %} <a href="{% url 'auth_password_reset' %}">{% trans "Сбросить пароль" %}</a>.</p>
+<p class="lead text-align-center">{% trans "Вы не зарегистрированы?" %} <a href="{% url 'registration_register' %}">{% trans "Регистрация" %}</a>.</p>
 {% endblock %}
 </div>
 </div>

@@ -26,7 +26,7 @@ def home(request):
 
 
 def contact(request):
-	title = 'Contact Us'
+	title = 'Задать вопрос'
 	title_align_center = True
 	form = ContactForm(request.POST or None)
 	if form.is_valid():

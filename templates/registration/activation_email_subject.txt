@@ -1,6 +1,6 @@
 {% load i18n %}
 {% load crispy_forms_tags %}s
-{% trans "Account activation on" %} Complete Registration for {{ site.name }}
+{% trans "Активация учетной записи" %} Завершение регистрации для {{ site.name }}
 
 
 {% comment %}
